@@ -36,7 +36,7 @@ function MovieDetails() {
         setLoading(false); // Set loading to false on error
       });
   }, [param]);
-
+    console.log(data,'daa')
   return (
     <div>
       {loading && <p>Loading...</p>}
@@ -48,17 +48,21 @@ function MovieDetails() {
           ) : (
             <>
               {data.map((movieDetails) => (
-                <div key={movieDetails.id}>
+                
+                <div key={movieDetails.id} className='search-details'>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
                     alt={movieDetails.title}
                     data-testid="movie-poster"
-                    className='movie-img'
+                    className='search-img'
+                    
                   />
                   <h2 data-testid="movie-title">{movieDetails.original_title}</h2>
-                  <p data-testid="movie-release-date">{movieDetails.release_date}</p>
+                  <p data-testid="movie-release-date">Released Date:{movieDetails.release_date}</p>
                   <p data-testid="movie-runtime">{movieDetails.runtime} minutes</p>
-                  <p data-testid="movie-overview">{movieDetails.overview}</p>
+                  <p 
+                  style={{padding:'20px 90px'}}
+                  data-testid="movie-overview">{movieDetails.overview}</p>
                 </div>
               ))}
             </>
