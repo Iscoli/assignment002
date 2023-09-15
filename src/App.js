@@ -1,6 +1,7 @@
 import Home from './Pages/Home';
 import logo from './logo.svg';
 import MovieDetails from './Pages/MovieDetails';
+import MovieSearch from './Pages/MovieSearch'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <Routes>
               
               <Route path='/' element={<Home/>} />
-              <Route path="/movies/:id" element={<MovieDetails />} />             
+              <Route path="/search" element={<MovieSearch />} />     
+              <Route path="/movies/:id" element={<MovieDetails />} />           
         </Routes>        
        </Router>
                   

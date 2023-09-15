@@ -19,8 +19,8 @@ function Footer() {
   &nbsp;&nbsp;&nbsp;
   <p>Press Room</p>
     </div>
-    <div>
-      
+    <div style={{margin:'25px 0'}}>
+    &copy; 2021 MovieBox by Adriana Eka Prayudha
     </div>
     </footer>
   )

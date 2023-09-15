@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-
+import {ReactComponent as Chevron} from '../Assets/chevron-right.svg'
+import {ReactComponent as Heart} from '../Assets/heart.svg'
 
 function Body() {
   const [movies, setMovies] = useState([]);
@@ -21,16 +22,24 @@ function Body() {
 
   return (
     <div className='main-moviecontainer'>
-      <div className='movie-title'>
-      <p>Top Rated Movies</p>
-      <p>see more  </p>
-      
+      <div className='movie-heading'>
+      <p className='heading1'>Top Rated Movies</p>
+      <span style={{display:'flex'}}>
+      <p className='heading2'
+      style={{marginRight:'5px',
+        marginTop:'-2px'}}
+      >
+        see more</p>
+        <Chevron/> 
+        </span>
       </div>
       <ul
        className='movie-list'>
         {movies.map((movie) => (
          
-          <div key={movie.id} data-testid="movie-card">
+          <div key={movie.id} data-testid="movie-card"
+          style={{position:'relative',
+          margin:'35px 0'}}>
           {/* Movie Poster */}
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -38,7 +47,7 @@ function Body() {
             data-testid="movie-poster"
             className='movie-img'
           />
-    
+          <Heart className='heart-icon'/>
           {/* Movie Title */}
           <p data-testid="movie-title">{movie.title}</p>
     

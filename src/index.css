@@ -17,6 +17,31 @@ code {
   padding: 0;
   margin: 0; /* Optionally, you can reset margins to 0 as well */
 }
+
+.movie-heading{
+  display: flex;
+  justify-content: space-between;
+  margin: 19px;
+}
+.heading1{
+  color: #000;
+font-family: DM Sans;
+font-size:20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.heading2{
+  color: var(--rose-700, #BE123C);
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+}
+
+
 .img-container {
   display: flex;
   justify-content: center; /* Horizontally center */
@@ -45,7 +70,15 @@ code {
   justify-content: center;
   padding-left: 19px;
   padding-right: 19px;
+
 }
+
+.heart-icon{
+  position: absolute;
+  top:10px;
+  right:50px;
+}
+
 
 @media (min-width: 540px) {
   .movie-list {
@@ -83,11 +116,9 @@ code {
 
 .App-container{
   max-width: 1400px;
-  min-width: 300px;
+  min-width: 350px;
   margin: 0 auto;
-  background-color: #f5f5f5;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: auto,
 }
 
@@ -152,13 +183,22 @@ code {
   left: '50%'; */
  /* transform: translate(-50%, -50%);  */
   color: white;
-  font-size: 24px,
+  /* font-size: 24px; */
+  width:100%;
+  margin-top: 10px;
 }
 
 
+.johnwick-story{
+  margin: 55px;
+}
 
-
-
+@media(max-width:360px){
+  .johnwick-story{
+    margin: 10px;
+  }
+  
+}
 
 
 
@@ -176,13 +216,12 @@ justify-content: space-between;
 }
 
 
-.search-icon{
+/* .search-icon {
   position: absolute;
-  margin-left: -30px;
+  margin-left: 490px;
   width: 25px;
-  margin-top: -20px;
-}
-
+  margin-top: -40px;
+} */
 
 .search-img{
   width: 80%;
@@ -196,3 +235,109 @@ justify-content: space-between;
   margin: 50px auto;
   text-align: center;
 }
+
+
+.search-container{
+  display:flex;
+}
+
+
+
+
+.layout{
+  width: 24px;
+height: 24px;
+flex-shrink: 0;
+}
+
+.first-heading{
+  display: flex;
+  justify-content: space-around;
+}
+
+.first-heading span{
+  margin-top: 10px;
+}
+
+
+.hamburger-container, 
+.movie-boxcon{
+  display: flex;
+}
+
+.hamburger-container{
+  margin-top: 9px;
+}
+.hamburger{
+  border-radius: 6px;
+background: var(--rose-700, #BE123C);
+}
+.hamburger-container p{
+  margin-top: 2;
+  margin-right: 14px;
+}
+
+.content p{
+  color: #FFF;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    width: 302px;
+    margin-top: 15px;
+}
+.movie-boxcon p{
+  margin-top: 14px;
+  margin-left: 10px;
+}
+
+.in {
+  border-radius: 6px;
+  border: 2px solid var(--gray-300, #D1D5DB);
+ 
+  display: flex;
+  width: 525px;
+  padding: 6px 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value (0.8) for the desired transparency */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  width:100%;
+}
+
+/* Rest of your CSS styles */
+
+
+button {
+  border: none; /* Remove the default button border */
+  outline: none; /* Remove the default outline on focus */
+}
+
+/* Optional: Add custom styles to the button */
+button {
+  background-color: transparent; /* Make the button background transparent */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  padding: 0; /* Remove any padding */
+  margin-left: -30px;
+}
+
+
+
+
+.trailer{
+  display: flex;
+  width:160px;
+padding: 6px 16px;
+align-items: center;
+gap: 8px;
+  border-radius: 6px;
+background: var(--rose-700, #BE123C);
+margin-top: 10px;
+}
+
+
+
+
+
+

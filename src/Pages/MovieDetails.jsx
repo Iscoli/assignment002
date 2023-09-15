@@ -5,69 +5,53 @@ import axios from 'axios';
 function MovieDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
-  const params = useParams();
-  const param = params.id;
+  const [movieDetails, setMovieDetails] = useState({});
+  console.log(movieDetails,'movie details')
+  
+const {id} = useParams();
+
 
   useEffect(() => {
-    setLoading(true); // Start loading
-    setError(null); // Clear previous errors
+    setLoading(true);
+    setError(null);
 
+    const apiKey = "d51ba7ba59eaefac134cd7fa1b41890a";
+    const apiUrl = `https://api.themoviedb.org/3/movie/${id}`;
+    
     axios
-      .get("https://api.themoviedb.org/3/search/movie", {
+      .get(apiUrl, {
         params: {
-          api_key: "d51ba7ba59eaefac134cd7fa1b41890a",
-          language: "en-US",
-          query: param,
-          page: 1,
+          api_key: apiKey,
+          language: 'en-US',
         },
       })
       .then((response) => {
-        // Filter out movie objects without a poster_path
-        const filteredResults = response.data.results.filter(
-          (movie) => movie.poster_path
-        );
-        setData(filteredResults);
-        setLoading(false); // Set loading to false when data is fetched
+        setMovieDetails(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching search results:", error);
-        setError(error); // Set error state in case of an error
-        setLoading(false); // Set loading to false on error
+        console.error('Error fetching movie details:', error);
+        setError(error);
+        setLoading(false);
       });
-  }, [param]);
-    console.log(data,'daa')
+  }, [id]);
+
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {!loading && !error && (
-        <>
-          {data.length === 0 ? (
-            <p>No results found</p>
-          ) : (
-            <>
-              {data.map((movieDetails) => (
-                
-                <div key={movieDetails.id} className='search-details'>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-                    alt={movieDetails.title}
-                    data-testid="movie-poster"
-                    className='search-img'
-                    
-                  />
-                  <h2 data-testid="movie-title">{movieDetails.original_title}</h2>
-                  <p data-testid="movie-release-date">Released Date:{movieDetails.release_date}</p>
-                  <p data-testid="movie-runtime">{movieDetails.runtime} minutes</p>
-                  <p 
-                  style={{padding:'20px 90px'}}
-                  data-testid="movie-overview">{movieDetails.overview}</p>
-                </div>
-              ))}
-            </>
-          )}
-        </>
+        <div
+        >
+         <img
+          src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
+         />
+          <h1>{movieDetails.title}</h1>
+          <p>Release Date: {movieDetails.release_date}</p>
+          <p>Runtime: {movieDetails.runtime} minutes</p>
+          <p>Overview: {movieDetails.overview}</p>
+          {/* You can display more movie details here */}
+        </div>
       )}
     </div>
   );
