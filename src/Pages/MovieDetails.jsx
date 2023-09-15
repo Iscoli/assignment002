@@ -42,6 +42,7 @@ const {id} = useParams();
       {error && <p>Error: {error.message}</p>}
       {!loading && !error && (
         <div
+        className='search-img'
         >
          <img
           src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}

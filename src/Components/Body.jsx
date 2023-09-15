@@ -5,6 +5,7 @@ import {ReactComponent as Heart} from '../Assets/heart.svg'
 
 function Body() {
   const [movies, setMovies] = useState([]);
+  console.log(movies,'oowoi')
 
   useEffect(() => {
     const apiKey = 'd51ba7ba59eaefac134cd7fa1b41890a';
